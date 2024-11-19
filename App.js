@@ -1,61 +1,32 @@
 import React, { useState } from 'react';
-import {  Text, View, Image, StyleSheet, ScrollView, TextInput, Pressable, Alert } from 'react-native';
+import {  Text, View, Image, StyleSheet, Pressable } from 'react-native';
 import { demoData } from './assets/data/data';
 
 
-const image = require('./assets/Icon.png.jpg')
+const cb = () => {
+  console.log('sign up!')
+};
+
 
 export default function App() {
-  const [text, setText] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
-
-  const handlePress = () => {
-    Alert.alert('Button Pressed!');
-  };
+  let pageImage = require('./assets/pageImage.png')
   return (
-    <View style={style.container}>
-     <Text style={style.parentText}>Sign Up</Text>
-     <View style={style.parentInput}>
-      <Text style={style.nametext}>Name</Text>
-      <TextInput
-       placeholder='John Dave' 
-       value={text}
-       onChangeText={setText}
-       style={style.inpuStyle}
-      />
-     </View>
-     <View style={style.parentInput}>
-      <Text style={style.nametext}>E-mail</Text>
-      <TextInput
-       placeholder='example@gmail.com' 
-       value={email}
-       onChangeText={setEmail}
-       style={style.inpuStyle}
-      />
-     </View>
-     <View style={style.parentInput}>
-      <Text style={style.nametext}>Password</Text>
-      <TextInput
-       placeholder='password' 
-       value={password}
-       secureTextEntry={true}
-       onChangeText={setPassword}
-       style={style.inpuStyle}
-      />
-     </View>
-     <View style={style.terms}>
-      <Text style={style.wordStyle}>
-        <Text>I agree with the </Text>
-        <Text style={style.innerStyle}>terms & Privacy</Text>
-        </Text>
-     </View>
-     <View style={style.buttonContainer}>
-      <Pressable onPress={handlePress} style={style.button}>
-      <Text style={style.pressText}>Sign Up</Text>
-     </Pressable>
-     </View>
+    <View style={style.header}>
+      <View style={style.imageHeader}>
+      <Image source={pageImage} style={style.image}/>
+      </View>
+      <View style={style.parentContainer}>
+        <Text style={style.firstText}>You'll Find</Text>
+        <View style={style.unique}>
+        <Text style={style.secondText}>All you need</Text>
+        <View style={style.horizontal}></View>
+        </View>
+        <Text style={style.thirdText}>Here!</Text>
+      </View>
+        <Pressable onPress={cb} style={style.button}>
+          <Text style={style.text}>Sign Up</Text>
+        </Pressable>
+      <Text style={{color: '#4F63AC', fontWeight: 'bold', fontSize: 16}}>Sign In</Text>
     </View>
   );
 };
@@ -63,66 +34,57 @@ export default function App() {
 //space-between
 
 const style = StyleSheet.create({
-
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    // justifyContent: 'center',
-    // alignItems: 'center'
-  gap: 30
-  },
-  parentText: {
-    color: 'blue',
-    fontSize: 20,
-    fontWeight: 'bold',
-    paddingHorizontal: 50,
-    paddingVertical: 20,
-  },
-
-  //text input 
-  parentInput: {
-    // alignItems: 'center',
-    // justifyContent: 'space-between',
-    paddingHorizontal: 50,
-    gap: 10
-  },
-  nametext: {
-    color: 'blue',
-    fontSize: 15,
-    fontWeight: '500'
-  },
-  inpuStyle: {
-    borderRadius: 10,
-    height: 50,
-    paddingHorizontal: 20,
-    borderColor: '#000',
-    borderStyle: 'solid',
-    backgroundColor: '#ddd'
-  },
-
-  //terms and condition
-  terms: {
-    paddingHorizontal: 50,
-  },
-  wordStyle: {
-    color: 'blue',
-    fontSize: 15,
-    fontFamily: 'Arial'
-  },
-  innerStyle:{
-    fontWeight: 'bold'
-  },
-  buttonContainer: {
-    alignItems: 'center'
-  },
-  button: {
-    backgroundColor: 'blue',
-    paddingHorizontal: 20,
-    borderRadius: 10
-  },
-  pressText: {
-     color: '#fff',
-     fontWeight: 'bold',
-     padding: 8
-  }
-})
+header: {
+  flex: 1,
+  backgroundColor: '#fff',
+  alignItems: 'center',
+  gap: 32,
+  paddingHorizontal: 64
+  // justifyContent: 'center'
+},
+imageHeader: {
+  paddingTop: 100,
+},
+image: {
+  height: 209,
+  width: 357,
+},
+parentContainer: {
+  alignItems: 'center',
+  paddingHorizontal: 20
+},
+firstText: {
+  fontSize: 10,
+  fontWeight: 'bold',
+  fontSize: 25,
+  color: '#303030'
+},
+secondText:{
+color: "#FCA34D",
+fontSize: 30,
+fontWeight: 500
+},
+horizontal: {
+  height: 2,
+  width: 167,
+  backgroundColor: "#FCA34D"
+},
+thirdText: {
+  fontSize: 10,
+  fontWeight: 'bold',
+  color: '#303030',
+  fontSize: 25,
+}, 
+button: {
+  backgroundColor: '#4F63AC',
+  padding: 12,
+  width: 280,
+  borderRadius: 8
+},
+text: {
+  color: '#fff',
+  fontSize: 16,
+  fontWeight: 'bold',
+  textAlign: 'center'
+}
+});
