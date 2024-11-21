@@ -1,147 +1,103 @@
 import React, { useState } from "react";
-import { Text, View, Image, StyleSheet, Pressable } from "react-native";
-import { TextInput } from "react-native-web";
+import {
+  Text,
+  View,
+  Image,
+  StyleSheet,
+  Pressable,
+  FlatList,
+} from "react-native";
+import { demoData } from "./data/data";
+import { Category } from "./category";
+import { ScrollView } from "react-native-web";
 
-const arrow = require("./assets/icon.png");
-
-const cb = () => {
-  console.log("sign up!");
-};
+const vector = require("./assets/Vector.png");
+const group9 = require("./assets/Group 9.png");
 
 export default function App() {
-  let { email, setEmail } = useState("");
-  let { password, setPassword } = useState("");
+  const dataDemo = [
+    {
+      id: 1,
+      icon: './assets/Group 9.png',
+      name: 'Popular'
+    },
+    {
+      id: 2,
+      icon: './assets/Group 2.png',
+      name: 'Chair'
+    },
+    {
+      id: 3,
+      icon: './assets/Group 4.png',
+      name: 'Table'
+    },
+    {
+      id: 4,
+      icon: './assets/Group 6.png',
+      name: 'Armchair'
+    },
+    {
+      id: 5,
+      icon: './assets/Group 8.png',
+      name: 'Bed'
+    }
+  ];
+  console.log(dataDemo);
   return (
     <View style={style.header}>
-      <View style={style.headerCont}>
-        <Image source={arrow} style={{ height: 20, width: 20 }} />
-        <Text style={style.parentText}>Sign In</Text>
+      <View style={style.vectorContainer}>
+        <Image source={vector} style={style.vector} />
+        <Text style={style.vectotText}>Find All You Need</Text>
+        <Text></Text>
       </View>
-      <View>
-        <Text style={style.label}>E-mail</Text>
-        <TextInput
-          placeholder="Example@gmail.com"
-          value={email}
-          onChange={setEmail}
-          style={style.emailInput}
-        />
-      </View>
-      <View>
-        <Text style={style.label}>Password</Text>
-        <TextInput
-          placeholder="Password"
-          value={password}
-          onChange={setPassword}
-          style={style.emailInput}
-        />
-      </View>
-      <Pressable onPress={cb} style={style.button}>
-        <Text style={style.buttonText}>Sign In</Text>
-      </Pressable>
-      <View
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "center",
-          gap: 10,
-        }}
-      >
-        <View style={{ height: 2, width: 90, backgroundColor: "#ddd" }}></View>
-        <View>
-          <Text style={{ color: "#273991", fontWeight: "400" }}>
-            Or sign in with
-          </Text>
-        </View>
-        <View
-          style={{ height: 2, width: 90, backgroundColor: "#ddd", gap: 8 }}
-        ></View>
-      </View>
-      <View style={style.google}>
-        <Image
-          source={{
-            uri: "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/google-white-icon.png",
-          }}
-          style={style.imageStyle}
-        />
-      </View>
-      <View
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <Text style={{ color: "#273991" }}>Don't have an account?</Text>
-        <Text style={{ fontSize: 17, fontWeight: "400", color: "#273991" }}>
-          {" "}
-          Sign Up
-        </Text>
-      </View>
+      <ScrollView>
+        {dataDemo.map((item) => (
+          <View key={item.id} style={{flexDirection: 'row'}}>
+            <View style={{justifyContent: 'space-between'}}>
+            <Image source={item.icon} style={{height: 32, width: 32}}/>
+            <Text>{item.name}</Text>
+            </View>
+          </View>
+        ))}
+      </ScrollView>
     </View>
   );
 }
 
-//space-between
+
 
 const style = StyleSheet.create({
   header: {
     flex: 1,
     backgroundColor: "#fff",
     paddingHorizontal: 20,
-    // alignItems: "center",
-    maxWidth: 310,
-    margin: "auto",
-    // justifyContent: 'center',
-    marginTop: 64,
-    gap: 24,
+    paddingTop: 18,
+    // borderWidth: 2,
+    // borderColor: 'red'
   },
-  headerCont: {
+  vectorContainer: {
     flexDirection: "row",
-    gap: 20,
+    justifyContent: "space-between",
     alignItems: "center",
-    width: "100%",
-    // paddingLeft: 20,
   },
-  parentText: {
-    fontSize: 26,
-    fontWeight: "500",
-    color: "#4F63AC",
+  vector: {
+    backgroundColor: "#fff",
+    height: 20,
+    width: 20,
   },
-  emailInput: {
-    // backgroundColor: '#fff',
-    // width: 303,
-    // height: 86,
-    paddingVertical: 20,
-    paddingHorizontal: 10,
-    borderRadius: 16,
-    borderWidth: 1,
-    borderColor: "#8D9BB5",
-  },
-  label: {
-    color: "#4F63AC",
-    fontSize: 18,
-    marginBottom: 8
-  },
-  button: {
-    backgroundColor: "#4F63AC",
-    height: 60,
-    borderRadius: 15,
-    justifyContent: "center",
-  },
-  buttonText: {
-    color: "#fff",
+  vectotText: {
+    color: "#303030",
     fontWeight: "bold",
-    textAlign: "center",
   },
-  google: {
-    backgroundColor: "#404040",
-    paddingVertical: 15,
-    width: 142,
-    alignItems: "center",
-    borderRadius: 15,
-    margin: 'auto'
+  directionIcon: {},
+  demoHeader: {
+    backgroundColor: "#ddd",
+    borderRadius: 2,
   },
-  imageStyle: {
+  item: {
+    flexDirection: "row",
+  },
+  demoIcon: {
     height: 20,
     width: 20,
   },
