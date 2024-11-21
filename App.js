@@ -51,14 +51,16 @@ export default function App() {
         <Text></Text>
       </View>
       <ScrollView>
+        <View style={style.iconHeader}>
         {dataDemo.map((item) => (
-          <View key={item.id} style={{flexDirection: 'row'}}>
-            <View style={{justifyContent: 'space-between'}}>
+          <View key={item.id}>
+            <View style={{alignItems: 'center'}}>
             <Image source={item.icon} style={{height: 32, width: 32}}/>
             <Text>{item.name}</Text>
             </View>
           </View>
         ))}
+        </View>
       </ScrollView>
     </View>
   );
@@ -101,4 +103,11 @@ const style = StyleSheet.create({
     height: 20,
     width: 20,
   },
+  iconHeader: {
+    paddingTop: 18,
+    gap: 20, 
+    // display: 'flex', 
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  }
 });
