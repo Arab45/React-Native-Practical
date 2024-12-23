@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import {  Text, View, Image, StyleSheet, ScrollView, TextInput, Pressable, Alert } from 'react-native';
-import { demoData } from './assets/data/data';
 
 
 
 const image = require('./assets/Icon.png.jpg')
 
-export default function App() {
+export default function SignUp() {
   const [text, setText] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -83,7 +82,7 @@ export default function App() {
      </View>
      <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
         <Text style={{color: '#273991'}}>Already have an account?</Text>
-        <Text style={{fontSize: 17, fontWeight: '450', color: '#273991'}}> Sign in</Text>
+        <Text style={{fontSize: 17, fontWeight: 450, color: '#273991'}}> Sign in</Text>
       </View>
     </View>
   );
@@ -148,9 +147,9 @@ const style = StyleSheet.create({
   innerStyle:{
     fontWeight: 'bold'
   },
-  parentButton: {
+  // parentButton: {
     
-  },
+  // },
   button: {
     backgroundColor: '#273991',
     paddingVertical: 5,

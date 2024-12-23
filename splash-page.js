@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {  Text, View, Image, StyleSheet, Pressable } from 'react-native';
-import { demoData } from './assets/data/data';
+import { useNavigation } from '@react-navigation/native';
+import pageImage from './assets/pageImage.png'
 
 
 const cb = () => {
@@ -8,8 +9,10 @@ const cb = () => {
 };
 
 
-export default function App() {
-  let pageImage = require('./assets/pageImage.png')
+export default function Home() {
+  const navigation = useNavigation()
+  
+
   return (
     <View style={style.header}>
       <View style={style.imageHeader}>
@@ -23,10 +26,10 @@ export default function App() {
         </View>
         <Text style={style.thirdText}>Here!</Text>
       </View>
-        <Pressable onPress={cb} style={style.button}>
+        <Pressable onPress={() => navigation.navigate('SignUp')} style={style.button}>
           <Text style={style.text}>Sign Up</Text>
         </Pressable>
-      <Text style={{color: '#4F63AC', fontWeight: 'bold', fontSize: 16}}>Sign In</Text>
+      <Text style={{color: '#4F63AC', fontWeight: 'bold', fontSize: 16}}>Sign In</Text> 
     </View>
   );
 };

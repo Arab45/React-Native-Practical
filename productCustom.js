@@ -1,72 +1,87 @@
-import { View, Text, StyleSheet, Image, StatusBar } from "react-native";
-import { favorite } from "./data/favoriteProduct";
-import  image  from './assets/mask-group3.png'
+import { View, Text, StyleSheet, Image, ActivityIndicator } from "react-native";
+import product from './assets/Mask Group (1).png'
+import icon from './assets/marker 2.png'
 
 
 export default function Product () {
     return(
         <View style={style.container}>
-            <Text style={style.header}>Favorites</Text>
-            <View style={style.favoriteContainer}>
-                {favorite.map((item) => (
-                    <View style={style.favoriteBox} key={item.id}>
-                        <View style={style.leftContent}>
-                        <Image source={ item.icon } style={style.imageIcon}/>
-                        <View>
-                            <Text>{item.name}</Text>
-                            <Text>{item.price}</Text>
-                        </View>
-                        </View>
-                        <View style={style.rightContent}>
-                            <Text style={style.rightText}> X </Text>
-                        </View>
-                    </View>
-                ))}
+            <Image source={product} style={style.productImageDesign}/>
+            <View style={style.box}>
             </View>
-            <Image source={image}/>
+           <View style={style.contentContainer}>
+           <Text style={style.stand}>Minimal Stand</Text>
+            <Text style={style.price}> $ 50 </Text>
+            <Text>Minimal Stand is made of by natural wood. 
+                The design that is very simple and minimal. 
+                This is truly one of the best furnitures in any family for now. 
+                With 3 different colors, you can easily select the best match for your home. 
+                </Text>
+                <View style={style.contactContainer}>
+                    <Image source={icon} style={style.imageIcon}/>
+                    <Text style={style.contactStyle}>Contact seller</Text>
+                </View>
+           </View>
         </View>
     )
 }
 
 const style = StyleSheet.create({
-   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    padding: StatusBar.currentHeight
-   },
-   header: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    textAlign: 'center'
-   },
-   imageIcon: {
-    height: 20,
-    width: 20
-   },
-   favoriteBox: {
-    backgroundColor: '#333',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    padding: 10,
-   },
-   rightContent: {
-    borderWidth: 1,
-    width: 20,
-    height: 20,
-    borderRadius: 16,
-    borderColor: '#4F63AC',
-    flexDirection: 'row'
-   },
-   rightText: {
-    color: '#4F63AC',
-   },
-   favoriteContainer: {
-    gap: 10,
-    borderWidth: 1,
-   },
-   leftContent: {
-    flexDirection: 'row',
-   }
+    container: {
+        flex: 1,
+        backgroundColor: '#fff',
+        position: 'relative',
+        zIndex: 0
+    },
+    productImageDesign: {
+        width: '100%',
+        height: 441,
+    },
+    contentContainer: {
+        padding: 16,
+        gap: 16,
+    },
+    stand: {
+        fontSize: 24,
+        fontWeight: '600',
+        alignItems: 'center',
+        fontFamily: 'Gelasio',
+        fontWeight: '600'
+    },
+    price: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        alignItems: 'center'
+    },
+    contactStyle: {
+        backgroundColor: "#4F63AC",
+        textAlign: 'center',
+        width: 250,
+        height: 60,
+        borderRadius: 8,
+        color: '#fff',
+        fontSize: 24,
+        padding: 16,
+    },
+    contactContainer: {
+        backgroundColor: "#fff",
+        flexDirection: 'row',
+        marginTop: 100,
+        width: '100%',
+        alignItems: 'center',
+        justifyContent: 'space-between',        
+    },
+    imageIcon: {
+        width: 60,
+        height: 60,
+        backgroundColor: '#F2F2F2',
+        borderRadius: 5
+    },
+    box: {
+        backgroundColor: 'red',
+        width: '100%',
+        zIndex: 2
+    }
 })
 
 

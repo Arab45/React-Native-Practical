@@ -1,4 +1,4 @@
-export const demoData = [
+export const  demoData = [
   {
     id: 1,
     icon: './assets/Group 9.png',
