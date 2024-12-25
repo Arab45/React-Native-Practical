@@ -11,7 +11,7 @@ export default function Product () {
                 {favorite.map((item) => (
                     <View style={style.favoriteBox} key={item.id}>
                         <View style={style.leftContent}>
-                        <Image source={ item.icon } style={style.imageIcon}/>
+                        <Image source={item.image} style={style.imageIcon} resizeMode="cover" />
                         <View>
                             <Text>{item.name}</Text>
                             <Text>{item.price}</Text>
@@ -32,7 +32,8 @@ const style = StyleSheet.create({
    container: {
     flex: 1,
     backgroundColor: '#fff',
-    padding: StatusBar.currentHeight
+    paddingVertical: StatusBar.currentHeight,
+    paddingHorizontal: 10
    },
    header: {
     fontSize: 24,
@@ -40,8 +41,8 @@ const style = StyleSheet.create({
     textAlign: 'center'
    },
    imageIcon: {
-    height: 20,
-    width: 20
+    height: 100,
+    width: 100
    },
    favoriteBox: {
     backgroundColor: '#333',
@@ -68,7 +69,6 @@ const style = StyleSheet.create({
     flexDirection: 'row',
    }
 })
-
 
 
 
