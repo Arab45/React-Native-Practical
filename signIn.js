@@ -1,22 +1,27 @@
 import React, { useState } from "react";
-import { Text, View, Image, StyleSheet, Pressable } from "react-native";
-import { TextInput } from "react-native-web";
+import { Text, View, Image, StyleSheet, Pressable, TextInput, StatusBar } from "react-native";
 
 const arrow = require("./assets/icon.png");
 
-const cb = () => {
-  console.log("sign up!");
-};
 
-export default function App() {
+
+export default function Login() {
   let { email, setEmail } = useState("");
   let { password, setPassword } = useState("");
+
+  const cb = () => {
+    console.log("sign up!");
+  };
+
+
   return (
     <View style={style.header}>
       <View style={style.headerCont}>
         <Image source={arrow} style={{ height: 20, width: 20 }} />
         <Text style={style.parentText}>Sign In</Text>
+        <Text></Text>
       </View>
+      <View style={style.centercontainer}>
       <View>
         <Text style={style.label}>E-mail</Text>
         <TextInput
@@ -24,7 +29,7 @@ export default function App() {
           value={email}
           onChange={setEmail}
           style={style.emailInput}
-        />
+          />
       </View>
       <View>
         <Text style={style.label}>Password</Text>
@@ -33,7 +38,7 @@ export default function App() {
           value={password}
           onChange={setPassword}
           style={style.emailInput}
-        />
+          />
       </View>
       <Pressable onPress={cb} style={style.button}>
         <Text style={style.buttonText}>Sign In</Text>
@@ -45,7 +50,7 @@ export default function App() {
           justifyContent: "center",
           gap: 10,
         }}
-      >
+        >
         <View style={{ height: 2, width: 90, backgroundColor: "#ddd" }}></View>
         <View>
           <Text style={{ color: "#273991", fontWeight: "400" }}>
@@ -54,7 +59,7 @@ export default function App() {
         </View>
         <View
           style={{ height: 2, width: 90, backgroundColor: "#ddd", gap: 8 }}
-        ></View>
+          ></View>
       </View>
       <View style={style.google}>
         <Image
@@ -62,8 +67,9 @@ export default function App() {
             uri: "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/google-white-icon.png",
           }}
           style={style.imageStyle}
-        />
+          />
       </View>
+          </View>
       <View
         style={{
           flexDirection: "row",
@@ -86,20 +92,21 @@ const style = StyleSheet.create({
   header: {
     flex: 1,
     backgroundColor: "#fff",
+    paddingVertical: StatusBar.currentHeight,
     paddingHorizontal: 20,
-    // alignItems: "center",
-    maxWidth: 310,
-    margin: "auto",
-    // justifyContent: 'center',
-    marginTop: 64,
-    gap: 24,
+    gap: 50,
   },
   headerCont: {
     flexDirection: "row",
     gap: 20,
     alignItems: "center",
     width: "100%",
-    // paddingLeft: 20,
+    paddingHorizontal: 20
+  },
+  centercontainer: {
+    gap: 24,
+    justifyContent: 'center',
+    paddingHorizontal: 20
   },
   parentText: {
     fontSize: 26,
@@ -107,11 +114,9 @@ const style = StyleSheet.create({
     color: "#4F63AC",
   },
   emailInput: {
-    // backgroundColor: '#fff',
-    // width: 303,
-    // height: 86,
+    height: 64,
     paddingVertical: 20,
-    paddingHorizontal: 10,
+    paddingHorizontal: 20,
     borderRadius: 16,
     borderWidth: 1,
     borderColor: "#8D9BB5",

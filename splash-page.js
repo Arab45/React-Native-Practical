@@ -4,9 +4,9 @@ import { useNavigation } from '@react-navigation/native';
 import pageImage from './assets/pageImage.png'
 
 
-const cb = () => {
-  console.log('sign up!')
-};
+// const cb = () => {
+//   console.log('sign up!')
+// };
 
 
 export default function Home() {

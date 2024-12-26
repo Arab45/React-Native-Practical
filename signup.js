@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import { StatusBar } from 'react-native';
 import {  Text, View, Image, StyleSheet, ScrollView, TextInput, Pressable, Alert } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 
 
@@ -9,6 +11,8 @@ export default function SignUp() {
   const [text, setText] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigation = useNavigation()
+  
 
   const arrowLeft =  require('./assets/icon.png');
 
@@ -21,6 +25,7 @@ export default function SignUp() {
       <View style={style.header}>
         <Image source={arrowLeft} style={{height: 20, width: 20}} />
         <Text style={style.parentText}>Sign Up</Text>
+        {/* <Text></Text> */}
       </View>
      <View style={style.parentInput}>
       <Text style={style.nametext}>Name</Text>
@@ -58,7 +63,7 @@ export default function SignUp() {
      </View>
 
      <View style={{alignItems: 'center', justifyContent: 'center'}}>
-     <Pressable onPress={handlePress} 
+     <Pressable onPress={() => navigation.navigate('LoginPage')} 
       style={style.button}
       >
       <Text style={style.pressText}>Sign Up</Text>
@@ -97,13 +102,15 @@ const style = StyleSheet.create({
     backgroundColor: '#fff',
     // justifyContent: 'center',
     // alignItems: 'center'
-  gap: 20
+  gap: 20,
+  paddingVertical: StatusBar.currentHeight
   },
   header: {
     flexDirection: 'row',
     paddingHorizontal: 50,
     paddingVertical: 20,
     alignItems: 'center',
+    // justifyContent: 'space-between',
     gap: 15
   },
   parentText: {
@@ -125,12 +132,12 @@ const style = StyleSheet.create({
     fontWeight: '500'
   },
   inpuStyle: {
-    borderRadius: 10,
-    height: 50,
+    paddingVertical: 20,
     paddingHorizontal: 20,
-    borderColor: '#000',
-    borderStyle: 'solid',
-    backgroundColor: '#ddd'
+    borderRadius: 16,
+    borderWidth: 1,
+    borderColor: "#8D9BB5",
+    height: 64
   },
 
   //terms and condition
@@ -152,8 +159,9 @@ const style = StyleSheet.create({
   // },
   button: {
     backgroundColor: '#273991',
-    paddingVertical: 5,
     borderRadius: 10,
+    height: 60,
+    justifyContent: 'center'
     // marginHorizontal: 'auto'
   },
   pressText: {
@@ -161,7 +169,9 @@ const style = StyleSheet.create({
      fontWeight: '#273991',
      padding: 8,
      width: 300,
-     textAlign: 'center'
+     textAlign: 'center',
+     fontSize: 16,
+     fontWeight: 'bold'
   },
   google: {
     backgroundColor: '#404040',
