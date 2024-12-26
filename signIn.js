@@ -109,9 +109,9 @@ const style = StyleSheet.create({
     paddingHorizontal: 20
   },
   parentText: {
-    fontSize: 26,
+    fontSize: 20,
     fontWeight: "500",
-    color: "#4F63AC",
+    color: "#273991",
   },
   emailInput: {
     height: 64,
