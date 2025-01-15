@@ -26,10 +26,6 @@ const chair = require('./assets/Group 2.png');
 const table = require('./assets/Group 4.png');
 const armchair = require('./assets/Group 6.png');
 const bed = require('./assets/Group 8.png');
-const lamp = require('./assets/Mask Group.png');
-const stand = require('./assets/Mask Group (1).png');
-const minimalChair = require('./assets/Mask Group (2).png');
-const Desk = require('./assets/Mask Group (3).png');
 
 
 export default function App() {

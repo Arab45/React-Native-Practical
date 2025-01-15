@@ -6,22 +6,22 @@ export const  demoData = [
   },
   {
     id: 2,
-    icon: './assets/Group 2.png',
+    icon: require('../assets/mask-group2.png'),
     name: 'Chair'
   },
   {
     id: 3,
-    icon: './assets/Group 4.png',
+    icon: require('../assets/mask-group4.png'),
     name: 'Table'
   },
   {
     id: 4,
-    icon: './assets/Group 6.png',
+    icon: require('../assets/Group 6.png'),
     name: 'Armchair'
   },
   {
     id: 5,
-    icon: './assets/Group 8.png',
+    icon: require('./assets/Group 8.png'),
     name: 'Bed'
   }
 ];
