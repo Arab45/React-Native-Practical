@@ -10,40 +10,28 @@ import {
   StatusBar,
   Platform,
   useWindowDimensions,
-  SafeAreaView
+  SafeAreaView,
 } from "react-native";
 
-//import { demoData }  from "./data/data"; 
-import { products }  from "./data/product";
-
+//import { demoData }  from "./data/data";
+import { products } from "./data/product";
 
 const vector = require("./assets/Vector.png");
 const group9 = require("./assets/Group-9.png");
 const marker = require("./assets/marker-1.png");
 const clarity = require("./assets/clarity_home-solid.png");
-const bi = require('./assets/bi_person.png');
-const chair = require('./assets/Group-2.png');
-const table = require('./assets/Group-4.png');
-const armchair = require('./assets/Group-6.png');
-const bed = require('./assets/Group-8.png');
-const lamp = require('./assets/mask-group.png');
-const coffeeTable = require('./assets/mask-group1.png');
-const coffeeChair = require('./assets/mask-group2.png');
-const desk = require('./assets/mask-group3.png');
-
-
-
-
-
+const bi = require("./assets/bi_person.png");
+const chair = require("./assets/Group-2.png");
+const table = require("./assets/Group-4.png");
+const armchair = require("./assets/Group-6.png");
+const bed = require("./assets/Group-8.png");
+const lamp = require("./assets/mask-group.png");
+const coffeeTable = require("./assets/mask-group1.png");
+const coffeeChair = require("./assets/mask-group2.png");
+const desk = require("./assets/mask-group3.png");
 
 export default function App() {
   const { width, height } = useWindowDimensions();
-  const boxSize = width / 2;
-  const boxHeight = height / 2;
-  console.log(height);
-  console.log(boxSize)
-  console.log(boxHeight)
-
 
   return (
     <SafeAreaView style={style.header}>
@@ -61,40 +49,49 @@ export default function App() {
           <Image source={bed} style={style.starStyle} />
         </View>
 
-        <View style={{gap: 20}}>
-        <View style={{flexDirection: 'row', width: boxSize, gap: 10}}>
-          <View>
-            <Image source={lamp} style={{height: 250, borderRadius: 10}} />
-            <Text>Black Simple Lamp</Text>
-            <Text>$ 12.00</Text>
+        <View style={style.imageContainer}>
+          <View style={style.subImageContaier}>
+            <View style={style.innerImageContainer}>
+              <Image source={lamp} style={style.images} />
+              <View style={style.imageText}>
+                <Text>Black Simple Lamp</Text>
+                <Text style={{ fontSize: 16, fontWeight: "bold" }}>
+                  $ 12.00
+                </Text>
+              </View>
+            </View>
+            <View style={style.innerImageContainer}>
+              <Image source={coffeeTable} style={style.images} />
+              <View style={style.imageText}>
+                <Text>Minimal Stand</Text>
+                <Text style={{ fontSize: 16, fontWeight: "bold" }}>
+                  $ 25.00
+                </Text>
+              </View>
             </View>
           </View>
-          <View>
-            <Image source={coffeeTable} style={{height: 250, borderRadius: 10}}/>
-            <View>
-            <Text>Minimal Stand</Text>
-            <Text>$ 25.00</Text>
+
+          <View style={style.subImageContaier}>
+            <View style={style.innerImageContainer}>
+              <Image source={coffeeChair} style={style.images} />
+              <View style={style.imageText}>
+                <Text>Coffee Chair</Text>
+                <Text style={{ fontSize: 16, fontWeight: "bold" }}>
+                  $ 20.00
+                </Text>
+              </View>
             </View>
-          </View>
-          </View>
-          <View style={{flexDirection: 'row', width: boxSize, gap: 10}}>
-          <View>
-            <Image source={coffeeChair} style={{height: 250, borderRadius: 10}}/>
-            <View>
-            <Text>Coffee Chair</Text>
-            <Text>$ 20.00</Text>
+            <View style={style.innerImageContainer}>
+              <Image source={desk} style={style.images} />
+              <View style={style.imageText}>
+                <Text>Simple Desk</Text>
+                <Text style={{ fontSize: 16, fontWeight: "bold" }}>
+                  $ 50.00
+                </Text>
+              </View>
             </View>
-          </View>
-          <View>
-            <Image source={desk} style={{height: 250, borderRadius: 10}}/>
-            <View>
-            <Text>Simple Desk</Text>
-            <Text>$ 50.00</Text>
-            </View>
-          </View>
           </View>
         </View>
-       
 
         {/* <FlatList
        data={products}
@@ -117,50 +114,51 @@ export default function App() {
           <Image source={marker} style={style.footerImage} />
           <Image source={bi} style={style.footerImage} />
         </View>
-      </View>
         </View>
+      </View>
     </SafeAreaView>
   );
 }
-
-
 
 const style = StyleSheet.create({
   header: {
     flex: 1,
     backgroundColor: "#fff",
+    borderWidth: 1,
+    borderColor: "blue",
     //paddingVertical: StatusBar.currentHeight,
     //paddingHorizontal: 10
   },
   container: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: "white",
     paddingHorizontal: 20,
     gap: 20,
+    borderWidth: 1,
+    borderColor: "red",
     //borderWidth: 1,
-    
   },
   vectorContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginTop: 20
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginTop: 20,
   },
   vector: {
-  width: 24,
-  height: 24
+    width: 24,
+    height: 24,
   },
   vectorText: {
     fontSize: 24,
-    fontWeight: 'bold'
+    fontWeight: "bold",
   },
   category: {
-    flexDirection: 'row',
-    justifyContent: 'space-between'
+    flexDirection: "row",
+    justifyContent: "space-between",
   },
   footerContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
+    flexDirection: "row",
+    justifyContent: "space-around",
   },
   footerImage: {
     height: 50,
@@ -168,51 +166,49 @@ const style = StyleSheet.create({
   },
   productBox: {
     //backgroundColor: 'gray',
-  //  width: width / 2,
-  flexDirection: 'row'
-
+    //  width: width / 2,
+    flexDirection: "row",
   },
   boxArrangement: {
-    backgroundColor: 'gray',
+    backgroundColor: "gray",
   },
   iconText: {
     fontSize: 16,
-    fontWeight: 'bold'
+    fontWeight: "bold",
   },
   footerHeader: {
     flex: 1,
-    justifyContent: 'flex-end'
-  }
+    justifyContent: "flex-end",
+  },
+  imageContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    gap: 20
+
+  },
+  innerImageContainer: {
+    width: "50%",
+    paddingHorizontal: 5,
+    gap: 10
+  },
+  images: {
+    height: 250,
+    borderRadius: 10,
+    // borderWidth: 6,
+  },
+  subImageContaier: {
+    // flex: 1,
+    flexDirection: "row",
+    // borderWidth: 1,
+  },
+  imageText: {},
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // import { View, Text, StyleSheet, StatusBar, Image, TextInput, Pressable, SafeAreaView } from "react-native";
 // import headerIcon from './assets/Frame-14.png';
 // import lamp from './assets/mask-group.png';
 // import plus from './assets/plus.png';
 // import Icon from 'react-native-vector-icons/Fontisto';
-
 
 // import { NavigationContainer } from '@react-navigation/native';
 // import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -234,8 +230,6 @@ const style = StyleSheet.create({
 //   );
 // }
 
-
-
 // // export default function Lastpage () {
 // //     return (
 // //         <View style={style.container}>
@@ -249,14 +243,14 @@ const style = StyleSheet.create({
 // //                 {/* <TextInput style={style.uploadForm}/> */}
 // //                 <View style={style.uploadForm}>
 // //                     <View style={style.mainplusHeader}>
-// //                         <Image source={plus} style={style.plusImage}/>         
+// //                         <Image source={plus} style={style.plusImage}/>
 // //                     </View>
 // //                 </View>
 // //                 <View style={style.rightImage}>
 // //                     <Image source={lamp} style={style.uploadImage} />
 // //                     <View style={style.mainTextX}>
 // //                         <Icon name="close" size={24} color="#4F63AC"/>
-// //                     </View>  
+// //                     </View>
 // //                 </View>
 // //             </View>
 // //             <View style={style.mainInput}>
@@ -323,13 +317,13 @@ const style = StyleSheet.create({
 // //     mainplusHeader: {
 // //         backgroundColor: '#ddd',
 // //         height: 30,
-// //         width: 30, 
+// //         width: 30,
 // //         alignItems: 'center',
 // //         justifyContent: 'center',
 // //         borderRadius: 16
 // //     },
 // //     // plusImage: {
-       
+
 // //     // },
 // //     mainUploadBox: {
 // //         flexDirection: 'row',
@@ -339,7 +333,7 @@ const style = StyleSheet.create({
 // //     uploadImage: {
 // //         height: 90,
 // //         width: 90
-// //     }, 
+// //     },
 // //     rightImage: {
 // //         flexDirection: 'row'
 // //     },
